@@ -29,6 +29,7 @@ body{transition:background-color .4s,color .4s;background:var(--bg);color:var(--
 a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 a:hover{text-decoration-color:currentColor}
 h2{font:inherit}
+[hidden]{display:none!important}
 .wrap{max-width:600px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right)) 72px max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:40px}
 .sec{display:flex;flex-direction:column;gap:12px}
 .label{color:var(--sub);padding:0 20px}
@@ -99,6 +100,11 @@ a.pill:hover{background:var(--pill-hover)}
       <p class="sub" id="contact-note"></p>
     </div>
   </section>
+  <section class="sec" id="folio-sec" hidden>
+    <h2 class="label" id="h-folio"></h2>
+    <div class="body"><p><a id="folio" target="_blank" rel="noopener"></a> <span class="sub" id="folio-meta"></span></p></div>
+  </section>
+
   <footer class="foot"><time id="clock"></time><span id="where"></span></footer>
 </main>
 
@@ -117,6 +123,7 @@ const COMMON = {
   brand: "Rey.K",
   email: "rey.k@kakao.com",
   updated: "2026-11-15",
+  portfolio: "",   /* 비공개: PDF 주소를 넣으면 Portfolio 항목이 다시 보여요 (예: "portfolio/kimdaeho_portfolio.pdf") */
   services: [
     { id: "nopo", url: "https://nopomap-swart.vercel.app", icon: "assets/nopo-icon.svg" },
     { id: "bts",  url: "https://bts-farm.vercel.app",      icon: "assets/bts-icon.svg" },
@@ -147,7 +154,7 @@ const TEXT = {
     hConnect: "Get in touch",
     contactLead: "가장 빠른 연락 방법은 이메일이에요.",
     contactNote: "서비스를 써 보고 느낀 점이나, 이런 게 있으면 좋겠다는 아이디어라면 무엇이든 반가워요.",
-    copy: "복사", copied: "복사했어요", selected: "선택했어요", where: "저는 대한민국 서울에 있어요.",
+    copy: "복사", copied: "복사했어요", selected: "선택했어요", where: "저는 대한민국 서울에 있어요.", hFolio: "Portfolio", folio: "포트폴리오 PDF 보기", folioMeta: "44쪽 · 15MB",
     updated: d => `Updated ${d}`
   },
   en: {
@@ -172,7 +179,7 @@ const TEXT = {
     hConnect: "Get in touch",
     contactLead: "Email is the best way to reach me.",
     contactNote: "Feedback on the services, or an idea for something you wish existed, is always welcome. Korean or English is fine.",
-    copy: "Copy", copied: "Copied", selected: "Selected", where: "I'm in Seoul, South Korea.",
+    copy: "Copy", copied: "Copied", selected: "Selected", where: "I'm in Seoul, South Korea.", hFolio: "Portfolio", folio: "View portfolio (PDF, Korean)", folioMeta: "44 pages · 15 MB",
     updated: d => `Updated ${d}`
   }
 };
@@ -214,6 +221,11 @@ function render(){
   $("copy").textContent = t.copy;
   $("contact-note").textContent = t.contactNote;
   $("where").textContent = t.where;
+  $("h-folio").textContent = t.hFolio;
+  $("folio").textContent = t.folio;
+  $("folio").href = COMMON.portfolio;
+  $("folio-sec").hidden = !COMMON.portfolio;
+  $("folio-meta").textContent = t.folioMeta;
   tick();
 }
 function tick(){
