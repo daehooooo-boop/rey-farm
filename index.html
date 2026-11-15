@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rey.K</title>
+<meta name="description" content="일상에 작은 즐거움을 더하는 서비스를 만드는 Rey.K(김대호)의 서비스 모음">
+<style>
+:root{
+  --bg:#fff; --fg:rgba(0,0,0,.9); --sub:rgba(0,0,0,.5);
+  --card:#fff; --shadow:0 0 8px rgba(0,0,0,.12); --pill:rgba(0,0,0,.03); --pill-hover:rgba(0,0,0,.07);
+  --line:rgba(0,0,0,.25); --icon-edge:rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111; --fg:rgba(255,255,255,.92); --sub:rgba(255,255,255,.5);
+    --card:#1b1b1b; --shadow:0 0 0 1px rgba(255,255,255,.08); --pill:rgba(255,255,255,.06); --pill-hover:rgba(255,255,255,.12);
+    --line:rgba(255,255,255,.3); --icon-edge:rgba(255,255,255,.14);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111; --fg:rgba(255,255,255,.92); --sub:rgba(255,255,255,.5);
+  --card:#1b1b1b; --shadow:0 0 0 1px rgba(255,255,255,.08); --pill:rgba(255,255,255,.06); --pill-hover:rgba(255,255,255,.12);
+  --line:rgba(255,255,255,.3); --icon-edge:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{transition:background-color .4s,color .4s;background:var(--bg);color:var(--fg);font:14px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+a:hover{text-decoration-color:currentColor}
+h2{font:inherit}
+.wrap{max-width:600px;margin:0 auto;padding:48px max(16px,env(safe-area-inset-right)) 72px max(16px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:40px}
+.sec{display:flex;flex-direction:column;gap:12px}
+.label{color:var(--sub);padding:0 20px}
+.body{padding:0 20px;display:flex;flex-direction:column;gap:14px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;padding:0 20px}
+.who{display:flex;flex-direction:column}
+.who strong{font-weight:500}
+.who span{color:var(--sub)}
+.lang{display:flex;gap:2px}
+.lang button{font:inherit;color:var(--sub);background:none;border:0;cursor:pointer;padding:0 4px;border-radius:6px}
+.lang button[aria-pressed="true"]{color:var(--fg)}
+.lang button:focus-visible,.pill:focus-visible,.copy:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:0 4px}
+.card{background:var(--card);box-shadow:var(--shadow);border-radius:24px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px}
+.card.wide{grid-column:1 / -1}
+.card img{width:64px;height:64px;display:block;border-radius:14.2222px;box-shadow:0 0 0 1px var(--icon-edge)}
+.txt{display:flex;flex-direction:column;gap:5px}
+.txt b{font-weight:500}
+.txt p{color:var(--sub)}
+.pill{margin-top:-4px;display:inline-block;background:var(--pill);border-radius:999px;padding:8px 12px;font-size:12px;line-height:1.2;text-decoration:none;color:var(--fg)}
+a.pill:hover{background:var(--pill-hover)}
+.pill[aria-disabled="true"]{color:var(--sub)}
+.mail{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.copy{font:inherit;font-size:12px;background:var(--pill);border:0;border-radius:999px;padding:4px 10px;color:var(--fg);cursor:pointer}
+.copy:hover{background:var(--pill-hover)}
+.sub{color:var(--sub)}
+@media (max-width:480px){
+  .grid{grid-template-columns:1fr}
+  .wrap{padding-top:32px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header class="top">
+    <div class="who"><strong id="brand"></strong><span id="updated"></span></div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="lang-ko" type="button">KOR</button>
+      <button id="lang-en" type="button">ENG</button>
+    </div>
+  </header>
+  <section class="body" id="intro"></section>
+
+  <section class="sec">
+    <h2 class="label" id="h-services"></h2>
+    <div class="grid" id="services"></div>
+  </section>
+
+  <section class="sec">
+    <h2 class="label" id="h-about"></h2>
+    <div class="body" id="about"></div>
+  </section>
+
+  <section class="sec">
+    <h2 class="label" id="h-connect"></h2>
+    <div class="body">
+      <p id="contact-lead"></p>
+      <div class="mail"><a id="email"></a><button class="copy" id="copy" type="button"></button></div>
+      <p class="sub" id="contact-note"></p>
+    </div>
+  </section>
+</main>
+
+<script>
+/* 보는 사람의 현지 시간 기준: 19시~7시는 다크, 그 외는 라이트. 30분마다 다시 확인 */
+function applyTheme(){
+  const h = new Date().getHours();
+  document.documentElement.setAttribute("data-theme", (h >= 19 || h < 7) ? "dark" : "light");
+}
+applyTheme(); setInterval(applyTheme, 30 * 60 * 1000);
+/* ============ 여기만 고치면 내용이 바뀝니다 ============ */
+const COMMON = {
+  brand: "Rey.K",
+  email: "rey.k@kakao.com",
+  updated: "2026-11-15",
+  services: [
+    { id: "nopo", url: "https://nopomap-swart.vercel.app", icon: "assets/icon-placeholder.svg" },
+    { id: "bts",  url: "https://bts-farm.vercel.app",      icon: "assets/bts-icon.svg" },
+    { id: "name", url: "https://nss-farm.vercel.app",      icon: "assets/name-icon.svg" },
+    { id: "ing",  url: "",                                 icon: "assets/ing-icon.svg" }
+  ]
+};
+const TEXT = {
+  ko: {
+    title: "Rey.K · 김대호",
+    intro: [
+      "일상에 작은 즐거움을 더하는 서비스를 직접 만들고 있어요. 지금은 오래된 가게를 찾는 {nopo:노포맵}과, 열자마자 버스 도착 시간을 알려 주는 {bts:BTS}를 운영하고 있습니다.",
+      "26년 동안 많은 사람이 매일 쓰는 서비스의 경험을 설계했어요. 지금은 아이디어부터 기획, 디자인, 개발까지 혼자 끝까지 해내며, 누군가 제 서비스를 쓰며 웃는 순간을 만드는 일을 합니다."
+    ],
+    hServices: "Service",
+    services: {
+      nopo: { name: "노포맵", desc: "30년 넘게 한자리를 지켜 온 전국 노포 989곳을 지도에서 찾아요." },
+      bts:  { name: "버스타", desc: "열자마자 가장 가까운 정류장의 버스 도착 시간을 보여 줘요. 정류장을 검색할 필요 없이 '지금 몇 분 남았는지'만 바로 확인할 수 있어요." },
+      name: { name: "이름 궁합", desc: "두 사람의 이름을 넣으면 발음과 구조, 의미로 본 이름 조화 지수와 둘의 짧은 이야기를 보여 줘요." },
+      ing:  { name: "만드는 중", desc: "다음 서비스를 만들고 있어요. 나오면 여기에 가장 먼저 올라와요." }
+    },
+    open: "보기", soon: "준비 중",
+    hAbout: "What this place is",
+    about: [
+      "이곳은 제가 상상한 아이디어를 실제 서비스로 내놓는 곳이에요.",
+      "완벽한 하나를 오래 붙잡기보다 작게 만들어 빠르게 공개합니다. 돈이 되는 아이템보다 쓰는 사람이 즐거운 서비스를 먼저 고르고, 가설이 맞았는지는 실제 반응으로 확인해요. 좋은 반응을 얻은 서비스는 더 키웁니다."
+    ],
+    hConnect: "Get in touch",
+    contactLead: "가장 빠른 연락 방법은 이메일이에요.",
+    contactNote: "서비스를 써 보고 느낀 점이나, 이런 게 있으면 좋겠다는 아이디어라면 무엇이든 반가워요.",
+    copy: "복사", copied: "복사했어요", selected: "선택했어요",
+    updated: d => `Updated ${d}`
+  },
+  en: {
+    title: "Rey.K · Daeho Kim",
+    intro: [
+      "I make small services that add a little joy to everyday life. Right now I run {nopo:Nopo Map}, a map of long-running local shops in Korea, and {bts:BTS}, which shows bus arrival times the moment you open it.",
+      "For 26 years I designed experiences for services that many people use every day. Now I take my own ideas all the way from concept to design to code, and I build for the moment someone smiles while using what I made."
+    ],
+    hServices: "Service",
+    services: {
+      nopo: { name: "Nopo Map", desc: "Find 989 shops across Korea that have stayed in one place for 30 years or more, on a single map." },
+      bts:  { name: "BTS", desc: "Open it and you see arrival times for the nearest bus stop. No searching for stops, just how many minutes until your bus." },
+      name: { name: "Name Synergy", desc: "Enter two names and get a name harmony score based on sound, structure and meaning, plus a short story about the pair." },
+      ing:  { name: "In progress", desc: "The next service is in the works. It will show up here first." }
+    },
+    open: "Open", soon: "Coming soon",
+    hAbout: "What this place is",
+    about: [
+      "This is where I put the ideas I imagine out into the world as real services.",
+      "Instead of holding on to one perfect product, I build small and release early. I pick ideas that make people's day better over ideas that only make money, and I check my hunches against how people actually use them. The ones people love, I keep growing."
+    ],
+    hConnect: "Get in touch",
+    contactLead: "Email is the best way to reach me.",
+    contactNote: "Feedback on the services, or an idea for something you wish existed, is always welcome. Korean or English is fine.",
+    copy: "Copy", copied: "Copied", selected: "Selected",
+    updated: d => `Updated ${d}`
+  }
+};
+/* ================================================== */
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const $ = id => document.getElementById(id);
+const urlOf = id => (COMMON.services.find(s => s.id === id) || {}).url;
+const linkify = s => esc(s).replace(/\{(\w+):([^}]+)\}/g, (_, id, label) =>
+  urlOf(id) ? `<a href="${esc(urlOf(id))}" target="_blank" rel="noopener">${label}</a>` : label);
+let lang = "ko";
+
+function render(){
+  const t = TEXT[lang];
+  document.documentElement.lang = lang;
+  document.title = t.title;
+  $("brand").textContent = COMMON.brand;
+  $("updated").textContent = t.updated(COMMON.updated);
+  $("lang-ko").setAttribute("aria-pressed", lang === "ko");
+  $("lang-en").setAttribute("aria-pressed", lang === "en");
+  $("intro").innerHTML = t.intro.map(p => `<p>${linkify(p)}</p>`).join("");
+  $("h-services").textContent = t.hServices;
+  const list = COMMON.services;
+  $("services").innerHTML = list.map((s, i) => {
+    const x = t.services[s.id] || { name: s.id, desc: "" };
+    const wide = list.length % 2 === 1 && i === list.length - 1 ? " wide" : "";
+    const btn = s.url
+      ? `<a class="pill" href="${esc(s.url)}" target="_blank" rel="noopener" aria-label="${esc(x.name)} ${esc(t.open)}">${esc(t.open)}</a>`
+      : "";
+    return `<article class="card${wide}"><img src="${esc(s.icon)}" width="64" height="64" alt="">
+      <div class="txt"><b>${esc(x.name)}</b><p>${esc(x.desc)}</p></div>${btn}</article>`;
+  }).join("");
+  $("h-about").textContent = t.hAbout;
+  $("about").innerHTML = t.about.map(p => `<p>${esc(p)}</p>`).join("");
+  $("h-connect").textContent = t.hConnect;
+  $("contact-lead").textContent = t.contactLead;
+  $("email").textContent = COMMON.email;
+  $("email").href = "mailto:" + COMMON.email;
+  $("copy").textContent = t.copy;
+  $("contact-note").textContent = t.contactNote;
+}
+function setLang(l, save){
+  lang = TEXT[l] ? l : "ko";
+  if (save){ try { localStorage.setItem("hub-lang", lang); } catch(e){} try { history.replaceState(null, "", "#" + lang); } catch(e){} }
+  render();
+}
+$("lang-ko").onclick = () => setLang("ko", true);
+$("lang-en").onclick = () => setLang("en", true);
+$("copy").onclick = async () => {
+  const t = TEXT[lang], b = $("copy");
+  try { await navigator.clipboard.writeText(COMMON.email); b.textContent = t.copied; }
+  catch(e){ const r = document.createRange(); r.selectNodeContents($("email")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = t.selected; }
+  setTimeout(() => b.textContent = t.copy, 1600);
+};
+(function start(){
+  const h = location.hash.slice(1);
+  let saved = null; try { saved = localStorage.getItem("hub-lang"); } catch(e){}
+  const nav = (navigator.language || "").toLowerCase().startsWith("ko") ? "ko" : "en";
+  setLang(TEXT[h] ? h : (saved || nav), false);
+})();
+</script>
+</body>
+</html>
