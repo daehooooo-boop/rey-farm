@@ -61,6 +61,8 @@ a.pill:hover{background:var(--pill-hover)}
 .copy{font:inherit;font-size:12px;background:var(--pill);border:0;border-radius:999px;padding:4px 10px;color:var(--fg);cursor:pointer}
 .copy:hover{background:var(--pill-hover)}
 .sub{color:var(--sub)}
+.foot{padding:0 20px;color:var(--sub);display:flex;gap:10px;align-items:baseline}
+.foot time{color:var(--fg);font-variant-numeric:tabular-nums}
 @media (max-width:480px){
   .grid{grid-template-columns:1fr}
   .wrap{padding-top:32px}
@@ -97,6 +99,7 @@ a.pill:hover{background:var(--pill-hover)}
       <p class="sub" id="contact-note"></p>
     </div>
   </section>
+  <footer class="foot"><time id="clock"></time><span id="where"></span></footer>
 </main>
 
 <script>
@@ -144,7 +147,7 @@ const TEXT = {
     hConnect: "Get in touch",
     contactLead: "가장 빠른 연락 방법은 이메일이에요.",
     contactNote: "서비스를 써 보고 느낀 점이나, 이런 게 있으면 좋겠다는 아이디어라면 무엇이든 반가워요.",
-    copy: "복사", copied: "복사했어요", selected: "선택했어요",
+    copy: "복사", copied: "복사했어요", selected: "선택했어요", where: "저는 대한민국 서울에 있어요.",
     updated: d => `Updated ${d}`
   },
   en: {
@@ -169,7 +172,7 @@ const TEXT = {
     hConnect: "Get in touch",
     contactLead: "Email is the best way to reach me.",
     contactNote: "Feedback on the services, or an idea for something you wish existed, is always welcome. Korean or English is fine.",
-    copy: "Copy", copied: "Copied", selected: "Selected",
+    copy: "Copy", copied: "Copied", selected: "Selected", where: "I'm in Seoul, South Korea.",
     updated: d => `Updated ${d}`
   }
 };
@@ -210,7 +213,15 @@ function render(){
   $("email").href = "mailto:" + COMMON.email;
   $("copy").textContent = t.copy;
   $("contact-note").textContent = t.contactNote;
+  $("where").textContent = t.where;
+  tick();
 }
+function tick(){
+  const now = new Date();
+  $("clock").textContent = new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Seoul", hour: "2-digit", minute: "2-digit", hour12: false }).format(now);
+  $("clock").dateTime = now.toISOString();
+}
+setInterval(() => tick(), 15000);
 function setLang(l, save){
   lang = TEXT[l] ? l : "ko";
   if (save){ try { localStorage.setItem("hub-lang", lang); } catch(e){} try { history.replaceState(null, "", "#" + lang); } catch(e){} }
