@@ -37,8 +37,6 @@ h2{font:inherit}
 .label{color:var(--sub);padding:0 20px}
 .body{padding:0 20px;display:flex;flex-direction:column;gap:14px}
 .top{display:flex;justify-content:space-between;align-items:flex-start;padding:0 20px}
-.me{display:flex;align-items:center;gap:12px}
-.logo{width:40px;height:40px;border-radius:8.9px;box-shadow:0 0 0 1px var(--icon-edge);display:block}
 .who{display:flex;flex-direction:column}
 .who strong{font-weight:500}
 .who span{color:var(--sub)}
@@ -82,7 +80,7 @@ a.pill:hover{background:var(--pill-hover)}
 <body>
 <main class="wrap">
   <header class="top">
-    <div class="me"><img class="logo" src="assets/farm-icon.png" width="40" height="40" alt=""><div class="who"><strong id="brand"></strong><span id="updated"></span></div></div>
+    <div class="who"><strong id="brand"></strong><span id="updated"></span></div>
     <div class="ctrl"><div class="lang" role="group" aria-label="Language">
       <button id="lang-ko" type="button">KOR</button>
       <button id="lang-en" type="button">ENG</button>
