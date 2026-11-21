@@ -129,13 +129,14 @@ applyTheme();
 const COMMON = {
   brand: "Rey.K",
   email: "rey.k@kakao.com",
-  updated: "2026-11-15",
+  updated: "2026-11-21",
   portfolio: "",   /* 비공개: PDF 주소를 넣으면 Portfolio 항목이 다시 보여요 (예: "portfolio/kimdaeho_portfolio.pdf") */
   services: [
     { id: "nopo", url: "https://nopomap.reyfarm.app", icon: "assets/nopo-icon.svg" },
     { id: "bts",  url: "https://bts.reyfarm.app",        icon: "assets/bts-icon.svg" },
     { id: "name", url: "https://nss.reyfarm.app",       icon: "assets/name-icon.svg" },
     { id: "uniggul", url: "https://uniggul.reyfarm.app", icon: "assets/uniggul-icon.svg" },
+    { id: "costco", url: "https://costco.reyfarm.app", icon: "assets/costco-icon.svg" },
     { id: "ing",  url: "",                                 icon: "assets/ing-icon.svg" }
   ]
 };
@@ -152,6 +153,7 @@ const TEXT = {
       bts:  { name: "버스타", desc: "열자마자 가장 가까운 정류장의 버스 도착 시간을 보여 줘요. 정류장을 검색할 필요 없이 '지금 몇 분 남았는지'만 바로 확인할 수 있어요." },
       name: { name: "이름 궁합", desc: "두 사람의 이름을 넣으면 발음과 구조, 의미로 본 이름 조화 지수와 둘의 짧은 이야기를 보여 줘요." },
       uniggul: { name: "유니꿀로", desc: "갖고 싶은 유니클로 상품을 저장해 두면 할인이 시작될 때 디스코드로 바로 알려 줘요. 매주 금요일에는 그 주 할인 상품을 할인율 순으로 모아 보여 줘요." },
+      costco: { name: "이번 주 코스트코", desc: "코스트코 이번 주 할인상품과 인기상품 TOP 10을 매일 아침 모아 보여 줘요. 가려는 지점이 오늘 문을 여는지, 다음 휴무일은 언제인지도 바로 알려 줘요." },
       ing:  { name: "만드는 중", desc: "다음 서비스를 만들고 있어요. 나오면 여기에 가장 먼저 올라와요." }
     },
     open: "보기", soon: "준비 중",
@@ -178,6 +180,7 @@ const TEXT = {
       bts:  { name: "BTS", desc: "Open it and you see arrival times for the nearest bus stop. No searching for stops, just how many minutes until your bus." },
       name: { name: "Name Synergy", desc: "Enter two names and get a name harmony score based on sound, structure and meaning, plus a short story about the pair." },
       uniggul: { name: "Uniggul", desc: "Save the Uniqlo items you want and get a Discord message the moment they go on sale. Every Friday it lists that week's deals, biggest discount first." },
+      costco: { name: "Costco This Week", desc: "See this week's Costco Korea deals and the top 10 popular items, refreshed every morning. It also tells you whether your store is open today and when it closes next." },
       ing:  { name: "In progress", desc: "The next service is in the works. It will show up here first." }
     },
     open: "Open", soon: "Coming soon",
