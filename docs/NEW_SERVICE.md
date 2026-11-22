@@ -2,7 +2,7 @@
 
 Rey.K(김대호)의 새 서비스를 시작할 때 따르는 기본 순서예요. 지금까지 만든 네 서비스(노포맵, BTS, 이름 궁합, 유니꿀로)에서 공통으로 쓴 방식을 모았어요.
 
-**Claude에게:** 새 서비스를 만들 때 이 문서를 처음부터 끝까지 읽고 순서대로 진행하세요. 사용자에게 "다른 서비스는 어떻게 했어요?"라고 묻지 않아도 되도록 쓴 문서예요. 여기 없는 결정이 필요하면 사용자에게 물어보고, 정해진 내용은 이 문서에 다시 반영하는 PR을 제안하세요.
+**Claude에게:** 새 서비스를 만들 때 이 문서를 처음부터 끝까지 읽고 순서대로 진행하세요. 검색·AI 답변·광고 기준은 [SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md)에 따로 있어요. 같이 따르세요. 사용자에게 "다른 서비스는 어떻게 했어요?"라고 묻지 않아도 되도록 쓴 문서예요. 여기 없는 결정이 필요하면 사용자에게 물어보고, 정해진 내용은 이 문서에 다시 반영하는 PR을 제안하세요.
 
 ---
 
@@ -15,6 +15,7 @@ Rey.K(김대호)의 새 서비스를 시작할 때 따르는 기본 순서예요
 | 배포 | Vercel Hobby, GitHub 연결로 자동 배포, 함수 리전 `icn1`(서울) |
 | 주소 | `https://<이름>.reyfarm.app` (기본 주소 `<이름>-farm.vercel.app`도 유지) |
 | 방문 분석 | Vercel Web Analytics (`@vercel/analytics/next`의 `<Analytics />`) |
+| 검색·AI·광고 | [SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md) (메타·OG·sitemap·JSON-LD·llms.txt·/about·/privacy) |
 | 폰트 | Pretendard (`pretendard` 패키지) |
 | 아이콘 | `src/app/icon.svg` + `src/app/apple-icon.png`(180×180) |
 | 테스트 | 순수 로직이 있으면 `vitest` |
@@ -137,6 +138,8 @@ export const metadata: Metadata = {
   },
 };
 
+// 검색용 전체 메타데이터(metadataBase, canonical, 네이버 확인 태그 등)는 SEO_GEO_ADSENSE.md 1장 기준으로 채워요.
+
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -228,7 +231,9 @@ export const SITE = {
 
 이후로는 main에 머지될 때마다 자동 배포되고, PR마다 미리보기 주소가 생겨요.
 
-> Vercel Hobby는 비상업 조건이에요. 광고, 후원, 유료 기능이 붙으면 Pro로 옮겨야 해요.
+> Vercel Hobby는 비상업 조건이에요. 광고, 후원, 유료 기능이 붙으면 Pro로 옮겨야 해요. 애드센스 준비는 [SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md) 6장.
+
+8. 네이버 서치어드바이저에 `https://<id>.reyfarm.app` 등록, 확인값을 `NEXT_PUBLIC_NAVER_VERIFICATION`에 넣기. 사이트맵을 Search Console(도메인 속성 `reyfarm.app`, 한 번만 만들면 됨)과 네이버에 제출 ([SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md) 5장).
 
 ---
 
@@ -294,7 +299,7 @@ npm run dev / npm run lint / npm test / npm run build
    ```
 4. 소개 문단(`TEXT.ko.intro`, `TEXT.en.intro`)에 서비스를 언급하고 싶으면 `{<id>:이름}` 형식으로 링크
 5. `COMMON.updated`를 오늘 날짜로 바꾸기
-6. 이 문서 0장의 "현재 서비스 목록" 표에도 한 줄 추가
+6. 이 문서 0장의 "현재 서비스 목록" 표에도 한 줄 추가. 허브의 `llms.txt`·JSON-LD 서비스 목록이 생긴 뒤라면 거기에도 한 줄 추가([SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md) 4장)
 7. 브랜치 → PR → 사용자 머지
 
 > 기존 카드 id 중 `nopo`, `name`은 서브도메인(`nopomap`, `nss`)과 달라요. 새 서비스는 카드 id를 서브도메인 id와 똑같이 맞춰요.
@@ -316,6 +321,7 @@ npm run dev / npm run lint / npm test / npm run build
 - [ ] `npm run lint`, `npm test`, `npm run build` 통과
 - [ ] `<Analytics />` 들어감 (개인 정보가 URL에 실리면 쿼리·해시 제거)
 - [ ] `icon.svg`, `apple-icon.png`, 제목·설명·OG 메타데이터
+- [ ] [SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md) 7장 체크리스트 (robots·sitemap·JSON-LD·llms.txt·/about·/privacy·허브 링크)
 - [ ] `.env.example`, `README.md`, `CLAUDE.md` 작성
 - [ ] `vercel.json` 리전 `icn1`
 - [ ] 허브 카드 PR (7장)
@@ -325,6 +331,7 @@ npm run dev / npm run lint / npm test / npm run build
 - [ ] GitHub 저장소 만들기, Claude 프로젝트에 저장소 추가
 - [ ] Vercel Import, 환경 변수 입력
 - [ ] 도메인 `<id>.reyfarm.app` 추가
+- [ ] 네이버 서치어드바이저 등록, Search Console·네이버에 사이트맵 제출
 - [ ] Analytics Enable
 - [ ] 외부 키 허용 도메인에 새 주소 추가
 - [ ] PR 머지 후 폰으로 실제 화면 확인
