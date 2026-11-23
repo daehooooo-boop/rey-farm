@@ -3,8 +3,31 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Rey.K</title>
-<meta name="description" content="Small services by Rey.K (Daeho Kim) that add a little joy to everyday life.">
+<!-- seo:start — scripts/prerender.mjs가 TEXT·COMMON에서 다시 만들어요. 직접 고치지 마세요 -->
+<title>Rey.K · Daeho Kim | Small services that add a little joy</title>
+<meta name="description" content="Small, free web services designed and built solo by Korean UX designer Daeho Kim (Rey.K): Nopo Map, BTS bus arrivals, Name Synergy, Uniggul and Costco This Week.">
+<meta name="author" content="Rey.K (Daeho Kim)">
+<link rel="canonical" href="https://reyfarm.app/">
+<link rel="alternate" hreflang="en" href="https://reyfarm.app/">
+<link rel="alternate" hreflang="ko" href="https://reyfarm.app/ko/">
+<link rel="alternate" hreflang="x-default" href="https://reyfarm.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="reyfarm">
+<meta property="og:title" content="Rey.K · Daeho Kim | Small services that add a little joy">
+<meta property="og:description" content="Small, free web services designed and built solo by Korean UX designer Daeho Kim (Rey.K): Nopo Map, BTS bus arrivals, Name Synergy, Uniggul and Costco This Week.">
+<meta property="og:url" content="https://reyfarm.app/">
+<meta property="og:image" content="https://reyfarm.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rey.K · Daeho Kim">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rey.K · Daeho Kim | Small services that add a little joy">
+<meta name="twitter:description" content="Small, free web services designed and built solo by Korean UX designer Daeho Kim (Rey.K): Nopo Map, BTS bus arrivals, Name Synergy, Uniggul and Costco This Week.">
+<meta name="twitter:image" content="https://reyfarm.app/og.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://reyfarm.app/#website","url":"https://reyfarm.app/","name":"reyfarm","alternateName":"Rey.K","inLanguage":["en","ko"],"publisher":{"@id":"https://reyfarm.app/#person"}},{"@type":"Person","@id":"https://reyfarm.app/#person","name":"Daeho Kim","alternateName":["Rey.K","김대호"],"url":"https://reyfarm.app/","email":"mailto:rey.k@kakao.com","jobTitle":"UI/UX designer and solo service maker","homeLocation":{"@type":"Place","name":"Seoul, South Korea"},"knowsLanguage":["ko","en"]},{"@type":"ProfilePage","@id":"https://reyfarm.app/#page","url":"https://reyfarm.app/","name":"Rey.K · Daeho Kim | Small services that add a little joy","description":"Small, free web services designed and built solo by Korean UX designer Daeho Kim (Rey.K): Nopo Map, BTS bus arrivals, Name Synergy, Uniggul and Costco This Week.","inLanguage":"en","isPartOf":{"@id":"https://reyfarm.app/#website"},"mainEntity":{"@id":"https://reyfarm.app/#person"},"dateModified":"2026-11-23","hasPart":{"@type":"ItemList","name":"Services by Rey.K","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebApplication","name":"Nopo Map","url":"https://nopomap.reyfarm.app","description":"Find 989 shops across Korea that have stayed in one place for 30 years or more, on a single map.","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"creator":{"@id":"https://reyfarm.app/#person"}}},{"@type":"ListItem","position":2,"item":{"@type":"WebApplication","name":"BTS","url":"https://bts.reyfarm.app","description":"Open it and you see arrival times for the nearest bus stop. No searching for stops, just how many minutes until your bus.","applicationCategory":"TravelApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"creator":{"@id":"https://reyfarm.app/#person"}}},{"@type":"ListItem","position":3,"item":{"@type":"WebApplication","name":"Name Synergy","url":"https://nss.reyfarm.app","description":"Enter two names and get a name harmony score based on sound, structure and meaning, plus a short story about the pair.","applicationCategory":"EntertainmentApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"creator":{"@id":"https://reyfarm.app/#person"}}},{"@type":"ListItem","position":4,"item":{"@type":"WebApplication","name":"Uniggul","url":"https://uniggul.reyfarm.app","description":"Save the Uniqlo items you want and get a Discord message the moment they go on sale. Every Friday it lists that week's deals, biggest discount first.","applicationCategory":"ShoppingApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"creator":{"@id":"https://reyfarm.app/#person"}}},{"@type":"ListItem","position":5,"item":{"@type":"WebApplication","name":"Costco This Week","url":"https://costco.reyfarm.app","description":"See this week's Costco Korea deals and the top 10 popular items, refreshed every morning. It also tells you whether your store is open today and when it closes next.","applicationCategory":"ShoppingApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"creator":{"@id":"https://reyfarm.app/#person"}}}]}}]}</script>
+<!-- seo:end -->
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
@@ -68,6 +91,7 @@ a.pill:hover{background:var(--pill-hover)}
 .sub{color:var(--sub)}
 .foot{padding:0 20px;color:var(--sub);display:flex;gap:10px;align-items:baseline}
 .foot time{color:var(--fg);font-variant-numeric:tabular-nums}
+.legal{padding:0 20px;color:var(--sub);font-size:12px;display:flex;flex-direction:column;gap:6px;margin-top:-24px}
 @media (max-width:480px){
   .grid{grid-template-columns:1fr}
   .wrap{padding-top:32px}
@@ -80,39 +104,46 @@ a.pill:hover{background:var(--pill-hover)}
 <body>
 <main class="wrap">
   <header class="top">
-    <div class="who"><strong id="brand"></strong><span id="updated"></span></div>
+    <div class="who"><strong id="brand">Rey.K</strong><span id="updated">Updated 2026-11-23</span></div>
     <div class="ctrl"><div class="lang" role="group" aria-label="Language">
-      <button id="lang-ko" type="button">KOR</button>
-      <button id="lang-en" type="button">ENG</button>
+      <button id="lang-ko" type="button" aria-pressed="false">KOR</button>
+      <button id="lang-en" type="button" aria-pressed="true">ENG</button>
     </div>
-    <button id="theme" class="dot" type="button" aria-pressed="false"></button></div>
+    <button id="theme" class="dot" type="button" aria-pressed="false" aria-label="Dark mode" title="Dark mode"></button></div>
   </header>
-  <section class="body" id="intro"></section>
+  <section class="body" id="intro"><p>I make small services that add a little joy to everyday life. Right now I run <a href="https://nopomap.reyfarm.app" target="_blank" rel="noopener">Nopo Map</a>, a map of long-running local shops in Korea, and <a href="https://bts.reyfarm.app" target="_blank" rel="noopener">BTS</a>, which shows bus arrival times the moment you open it.</p><p>For 26 years I designed experiences for services that many people use every day. Now I take my own ideas all the way from concept to design to code, and I build for the moment someone smiles while using what I made.</p></section>
 
   <section class="sec">
-    <h2 class="label" id="h-services"></h2>
-    <div class="grid" id="services"></div>
+    <h2 class="label" id="h-services">Service</h2>
+    <div class="grid" id="services"><article class="card"><a class="icon-link" href="https://nopomap.reyfarm.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/nopo-icon.svg" width="64" height="64" alt=""></a>
+      <div class="txt"><b>Nopo Map</b><p>Find 989 shops across Korea that have stayed in one place for 30 years or more, on a single map.</p></div><a class="pill" href="https://nopomap.reyfarm.app" target="_blank" rel="noopener" aria-label="Nopo Map Open">Open</a></article><article class="card"><a class="icon-link" href="https://bts.reyfarm.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/bts-icon.svg" width="64" height="64" alt=""></a>
+      <div class="txt"><b>BTS</b><p>Open it and you see arrival times for the nearest bus stop. No searching for stops, just how many minutes until your bus.</p></div><a class="pill" href="https://bts.reyfarm.app" target="_blank" rel="noopener" aria-label="BTS Open">Open</a></article><article class="card"><a class="icon-link" href="https://nss.reyfarm.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/name-icon.svg" width="64" height="64" alt=""></a>
+      <div class="txt"><b>Name Synergy</b><p>Enter two names and get a name harmony score based on sound, structure and meaning, plus a short story about the pair.</p></div><a class="pill" href="https://nss.reyfarm.app" target="_blank" rel="noopener" aria-label="Name Synergy Open">Open</a></article><article class="card"><a class="icon-link" href="https://uniggul.reyfarm.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/uniggul-icon.svg" width="64" height="64" alt=""></a>
+      <div class="txt"><b>Uniggul</b><p>Save the Uniqlo items you want and get a Discord message the moment they go on sale. Every Friday it lists that week's deals, biggest discount first.</p></div><a class="pill" href="https://uniggul.reyfarm.app" target="_blank" rel="noopener" aria-label="Uniggul Open">Open</a></article><article class="card"><a class="icon-link" href="https://costco.reyfarm.app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/costco-icon.svg" width="64" height="64" alt=""></a>
+      <div class="txt"><b>Costco This Week</b><p>See this week's Costco Korea deals and the top 10 popular items, refreshed every morning. It also tells you whether your store is open today and when it closes next.</p></div><a class="pill" href="https://costco.reyfarm.app" target="_blank" rel="noopener" aria-label="Costco This Week Open">Open</a></article><article class="card"><img src="/assets/ing-icon.svg" width="64" height="64" alt="">
+      <div class="txt"><b>In progress</b><p>The next service is in the works. It will show up here first.</p></div></article></div>
   </section>
 
   <section class="sec">
-    <h2 class="label" id="h-about"></h2>
-    <div class="body" id="about"></div>
+    <h2 class="label" id="h-about">What this place is</h2>
+    <div class="body" id="about"><p>This is where I put the ideas I imagine out into the world as real services.</p><p>Instead of holding on to one perfect product, I build small and release early. I pick ideas that make people's day better over ideas that only make money, and I check my hunches against how people actually use them. The ones people love, I keep growing.</p></div>
   </section>
 
   <section class="sec">
-    <h2 class="label" id="h-connect"></h2>
+    <h2 class="label" id="h-connect">Get in touch</h2>
     <div class="body">
-      <p id="contact-lead"></p>
-      <div class="mail"><a id="email"></a><button class="copy" id="copy" type="button"></button></div>
-      <p class="sub" id="contact-note"></p>
+      <p id="contact-lead">Email is the best way to reach me.</p>
+      <div class="mail"><a id="email" href="mailto:rey.k@kakao.com">rey.k@kakao.com</a><button class="copy" id="copy" type="button">Copy</button></div>
+      <p class="sub" id="contact-note">Feedback on the services, or an idea for something you wish existed, is always welcome. Korean or English is fine.</p>
     </div>
   </section>
-  <section class="sec" id="folio-sec" hidden>
-    <h2 class="label" id="h-folio"></h2>
-    <div class="body"><p><a id="folio" target="_blank" rel="noopener"></a> <span class="sub" id="folio-meta"></span></p></div>
+  <section class="sec" id="folio-sec" hidden="">
+    <h2 class="label" id="h-folio">Portfolio</h2>
+    <div class="body"><p><a id="folio" target="_blank" rel="noopener" href="">View portfolio (PDF, Korean)</a> <span class="sub" id="folio-meta">44 pages · 15 MB</span></p></div>
   </section>
 
-  <footer class="foot"><time id="clock"></time><span id="where"></span></footer>
+  <footer class="foot"><time id="clock"></time><span id="where">I'm in Seoul, South Korea.</span></footer>
+  <div class="legal"><p id="notice">Costco, Uniqlo and other brand names mentioned here belong to their owners. reyfarm services are independent personal projects, not affiliated with those companies, and show publicly available information.</p><p><a id="privacy" href="/privacy/">Privacy &amp; notices</a> · <span id="copyright">© 2026 Rey.K</span></p></div>
 </main>
 
 <script>
@@ -129,20 +160,24 @@ applyTheme();
 const COMMON = {
   brand: "Rey.K",
   email: "rey.k@kakao.com",
-  updated: "2026-11-21",
+  updated: "2026-11-23",
+  site: "https://reyfarm.app",
+  naverVerification: "",   /* 네이버 서치어드바이저 HTML 태그의 content 값. 넣고 scripts/prerender.mjs 실행 */
   portfolio: "",   /* 비공개: PDF 주소를 넣으면 Portfolio 항목이 다시 보여요 (예: "portfolio/kimdaeho_portfolio.pdf") */
   services: [
-    { id: "nopo", url: "https://nopomap.reyfarm.app", icon: "assets/nopo-icon.svg" },
-    { id: "bts",  url: "https://bts.reyfarm.app",        icon: "assets/bts-icon.svg" },
-    { id: "name", url: "https://nss.reyfarm.app",       icon: "assets/name-icon.svg" },
-    { id: "uniggul", url: "https://uniggul.reyfarm.app", icon: "assets/uniggul-icon.svg" },
-    { id: "costco", url: "https://costco.reyfarm.app", icon: "assets/costco-icon.svg" },
-    { id: "ing",  url: "",                                 icon: "assets/ing-icon.svg" }
+    { id: "nopo", url: "https://nopomap.reyfarm.app", icon: "/assets/nopo-icon.svg" },
+    { id: "bts",  url: "https://bts.reyfarm.app",        icon: "/assets/bts-icon.svg" },
+    { id: "name", url: "https://nss.reyfarm.app",       icon: "/assets/name-icon.svg" },
+    { id: "uniggul", url: "https://uniggul.reyfarm.app", icon: "/assets/uniggul-icon.svg" },
+    { id: "costco", url: "https://costco.reyfarm.app", icon: "/assets/costco-icon.svg" },
+    { id: "ing",  url: "",                                 icon: "/assets/ing-icon.svg" }
   ]
 };
 const TEXT = {
   ko: {
     title: "Rey.K · 김대호",
+    metaTitle: "Rey.K · 김대호 | 일상에 작은 즐거움을 더하는 서비스",
+    metaDesc: "UI/UX 디자이너 김대호(Rey.K)가 혼자 만드는 작은 웹 서비스 모음이에요. 노포맵, 버스타, 이름 궁합, 유니꿀로, 이번 주 코스트코를 무료로 쓸 수 있어요.",
     intro: [
       "일상에 작은 즐거움을 더하는 서비스를 직접 만들고 있어요. 지금은 오래된 가게를 찾는 {nopo:노포맵}과, 열자마자 버스 도착 시간을 알려 주는 {bts:BTS}를 운영하고 있습니다.",
       "26년 동안 많은 사람이 매일 쓰는 서비스의 경험을 설계했어요. 지금은 아이디어부터 기획, 디자인, 개발까지 혼자 끝까지 해내며, 누군가 제 서비스를 쓰며 웃는 순간을 만드는 일을 합니다."
@@ -165,11 +200,15 @@ const TEXT = {
     hConnect: "Get in touch",
     contactLead: "가장 빠른 연락 방법은 이메일이에요.",
     contactNote: "서비스를 써 보고 느낀 점이나, 이런 게 있으면 좋겠다는 아이디어라면 무엇이든 반가워요.",
+    notice: "서비스 이름과 설명에 나오는 코스트코, 유니클로 등의 상표는 각 회사의 것이에요. reyfarm의 서비스는 해당 회사와 제휴하지 않은 개인 프로젝트이고, 공개된 정보를 모아 보여 줘요.",
+    privacy: "개인정보처리방침 · 고지",
     copy: "복사", copied: "복사했어요", selected: "선택했어요", where: "저는 대한민국 서울에 있어요.", hFolio: "Portfolio", folio: "포트폴리오 PDF 보기", folioMeta: "44쪽 · 15MB",
     updated: d => `Updated ${d}`
   },
   en: {
     title: "Rey.K · Daeho Kim",
+    metaTitle: "Rey.K · Daeho Kim | Small services that add a little joy",
+    metaDesc: "Small, free web services designed and built solo by Korean UX designer Daeho Kim (Rey.K): Nopo Map, BTS bus arrivals, Name Synergy, Uniggul and Costco This Week.",
     intro: [
       "I make small services that add a little joy to everyday life. Right now I run {nopo:Nopo Map}, a map of long-running local shops in Korea, and {bts:BTS}, which shows bus arrival times the moment you open it.",
       "For 26 years I designed experiences for services that many people use every day. Now I take my own ideas all the way from concept to design to code, and I build for the moment someone smiles while using what I made."
@@ -192,6 +231,8 @@ const TEXT = {
     hConnect: "Get in touch",
     contactLead: "Email is the best way to reach me.",
     contactNote: "Feedback on the services, or an idea for something you wish existed, is always welcome. Korean or English is fine.",
+    notice: "Costco, Uniqlo and other brand names mentioned here belong to their owners. reyfarm services are independent personal projects, not affiliated with those companies, and show publicly available information.",
+    privacy: "Privacy & notices",
     copy: "Copy", copied: "Copied", selected: "Selected", where: "I'm in Seoul, South Korea.", hFolio: "Portfolio", folio: "View portfolio (PDF, Korean)", folioMeta: "44 pages · 15 MB",
     updated: d => `Updated ${d}`
   }
@@ -208,7 +249,7 @@ let lang = "en";
 function render(){
   const t = TEXT[lang];
   document.documentElement.lang = lang;
-  document.title = t.title;
+  document.title = t.metaTitle;
   $("brand").textContent = COMMON.brand;
   $("updated").textContent = t.updated(COMMON.updated);
   $("lang-ko").setAttribute("aria-pressed", lang === "ko");
@@ -236,6 +277,9 @@ function render(){
   $("copy").textContent = t.copy;
   $("contact-note").textContent = t.contactNote;
   $("where").textContent = t.where;
+  $("notice").textContent = t.notice;
+  $("privacy").textContent = t.privacy;
+  $("copyright").textContent = `© ${COMMON.updated.slice(0, 4)} ${COMMON.brand}`;
   $("h-folio").textContent = t.hFolio;
   $("folio").textContent = t.folio;
   $("folio").href = COMMON.portfolio;
@@ -251,7 +295,8 @@ function tick(){
 setInterval(() => tick(), 15000);
 function setLang(l, save){
   lang = TEXT[l] ? l : "ko";
-  if (save){ try { localStorage.setItem("hub-lang", lang); } catch(e){} try { history.replaceState(null, "", "#" + lang); } catch(e){} }
+  /* 한국어는 /ko/, 영어는 / 가 각자 검색에 잡히는 주소예요. 전환하면 주소도 맞춰 바꿔요 */
+  if (save){ try { localStorage.setItem("hub-lang", lang); } catch(e){} try { history.replaceState(null, "", lang === "ko" ? "/ko/" : "/"); } catch(e){} }
   render();
 }
 $("theme").onclick = () => { theme = theme === "dark" ? "light" : "dark"; try { localStorage.setItem("hub-theme", theme); } catch(e){} applyTheme(); };
@@ -267,7 +312,8 @@ $("copy").onclick = async () => {
 (function start(){
   const h = location.hash.slice(1);
   let saved = null; try { saved = localStorage.getItem("hub-lang"); } catch(e){}
-  setLang(TEXT[h] ? h : (saved || "en"), false);
+  const byPath = location.pathname.startsWith("/ko") ? "ko" : null;
+  setLang(TEXT[h] ? h : (byPath || saved || "en"), false);
 })();
 </script>
 </body>
