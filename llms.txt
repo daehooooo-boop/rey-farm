@@ -1,0 +1,31 @@
+# reyfarm — Rey.K (김대호 Daeho Kim)
+
+> UI/UX 디자이너 김대호(Rey.K)가 혼자 만드는 작은 웹 서비스 모음이에요. 노포맵, 버스타, 이름 궁합, 유니꿀로, 이번 주 코스트코를 무료로 쓸 수 있어요.
+> Small, free web services designed and built solo by Korean UX designer Daeho Kim (Rey.K): Nopo Map, BTS bus arrivals, Name Synergy, Uniggul and Costco This Week.
+
+일상에 작은 즐거움을 더하는 서비스를 직접 만들고 있어요. 지금은 오래된 가게를 찾는 노포맵과, 열자마자 버스 도착 시간을 알려 주는 BTS를 운영하고 있습니다.
+
+26년 동안 많은 사람이 매일 쓰는 서비스의 경험을 설계했어요. 지금은 아이디어부터 기획, 디자인, 개발까지 혼자 끝까지 해내며, 누군가 제 서비스를 쓰며 웃는 순간을 만드는 일을 합니다.
+
+이곳은 제가 상상한 아이디어를 실제 서비스로 내놓는 곳이에요. 완벽한 하나를 오래 붙잡기보다 작게 만들어 빠르게 공개합니다. 돈이 되는 아이템보다 쓰는 사람이 즐거운 서비스를 먼저 고르고, 가설이 맞았는지는 실제 반응으로 확인해요. 좋은 반응을 얻은 서비스는 더 키웁니다.
+
+## 서비스 (Services)
+- [노포맵 (Nopo Map)](https://nopomap.reyfarm.app): 30년 넘게 한자리를 지켜 온 전국 노포 989곳을 지도에서 찾아요. / Find 989 shops across Korea that have stayed in one place for 30 years or more, on a single map.
+- [버스타 (BTS)](https://bts.reyfarm.app): 열자마자 가장 가까운 정류장의 버스 도착 시간을 보여 줘요. 정류장을 검색할 필요 없이 '지금 몇 분 남았는지'만 바로 확인할 수 있어요. / Open it and you see arrival times for the nearest bus stop. No searching for stops, just how many minutes until your bus.
+- [이름 궁합 (Name Synergy)](https://nss.reyfarm.app): 두 사람의 이름을 넣으면 발음과 구조, 의미로 본 이름 조화 지수와 둘의 짧은 이야기를 보여 줘요. / Enter two names and get a name harmony score based on sound, structure and meaning, plus a short story about the pair.
+- [유니꿀로 (Uniggul)](https://uniggul.reyfarm.app): 갖고 싶은 유니클로 상품을 저장해 두면 할인이 시작될 때 디스코드로 바로 알려 줘요. 매주 금요일에는 그 주 할인 상품을 할인율 순으로 모아 보여 줘요. / Save the Uniqlo items you want and get a Discord message the moment they go on sale. Every Friday it lists that week's deals, biggest discount first.
+- [이번 주 코스트코 (Costco This Week)](https://costco.reyfarm.app): 코스트코 이번 주 할인상품과 인기상품 TOP 10을 매일 아침 모아 보여 줘요. 가려는 지점이 오늘 문을 여는지, 다음 휴무일은 언제인지도 바로 알려 줘요. / See this week's Costco Korea deals and the top 10 popular items, refreshed every morning. It also tells you whether your store is open today and when it closes next.
+
+모든 서비스는 무료 웹 서비스이고 Rey.K가 혼자 기획·디자인·개발했어요.
+
+## 페이지
+- [소개 (한국어)](https://reyfarm.app/ko/)
+- [About (English)](https://reyfarm.app/)
+- [개인정보처리방침 · 고지](https://reyfarm.app/privacy/)
+
+## 연락
+- 이메일: rey.k@kakao.com
+- 위치: 대한민국 서울
+
+## 고지
+서비스 이름과 설명에 나오는 코스트코, 유니클로 등의 상표는 각 회사의 것이에요. reyfarm의 서비스는 해당 회사와 제휴하지 않은 개인 프로젝트이고, 공개된 정보를 모아 보여 줘요.

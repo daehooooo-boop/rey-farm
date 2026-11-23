@@ -1,0 +1,5 @@
+# reyfarm.app — 검색엔진과 AI 검색 모두 허용 (docs/SEO_GEO_ADSENSE.md 1장)
+User-agent: *
+Allow: /
+
+Sitemap: https://reyfarm.app/sitemap.xml

@@ -349,7 +349,7 @@ PR 본문에 붙여 쓰세요.
 
 | 사이트 | 저장소 | 메타·OG | robots·sitemap | JSON-LD | 서버 렌더 본문 | FAQ·about | llms.txt | privacy | 허브 링크 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 허브 reyfarm.app | rey-farm | △ (title·description만) | – | – | – (JS로 그림) | △ (About) | – | – | – |
+| 허브 reyfarm.app | rey-farm | ✓ (/, /ko/ hreflang) | ✓ | ✓ (Person·ProfilePage·서비스 목록) | ✓ (prerender.mjs) | △ (About, FAQ 없음) | ✓ | ✓ (/privacy/) | ✓ (허브 자체) |
 | 노포맵 | nopomap | 확인 필요 | 확인 필요 | 확인 필요 | 확인 필요 | 확인 필요 | – | 확인 필요 | 확인 필요 |
 | BTS | BTS | 확인 필요 | 확인 필요 | 확인 필요 | 확인 필요 | 확인 필요 | – | 확인 필요 | 확인 필요 |
 | 이름 궁합 | nss-farm | ✓ | ✓ | 확인 필요 | 확인 필요 | 확인 필요 | – | 확인 필요 | 확인 필요 |

@@ -298,16 +298,18 @@ npm run dev / npm run lint / npm test / npm run build
    <id>: { name: "<한국어 이름>", desc: "<설명>" },
    ```
 4. 소개 문단(`TEXT.ko.intro`, `TEXT.en.intro`)에 서비스를 언급하고 싶으면 `{<id>:이름}` 형식으로 링크
-5. `COMMON.updated`를 오늘 날짜로 바꾸기
-6. 이 문서 0장의 "현재 서비스 목록" 표에도 한 줄 추가. 허브의 `llms.txt`·JSON-LD 서비스 목록이 생긴 뒤라면 거기에도 한 줄 추가([SEO_GEO_ADSENSE.md](SEO_GEO_ADSENSE.md) 4장)
-7. 브랜치 → PR → 사용자 머지
+5. `COMMON.updated`를 오늘 날짜로 바꾸고, `TEXT.ko.metaDesc`·`TEXT.en.metaDesc`(검색 결과 설명)에 서비스 이름 추가
+6. `node scripts/prerender.mjs` 실행 → `ko/index.html`, `sitemap.xml`, `llms.txt`, `og.png`, JSON-LD가 새 카드를 반영해요
+7. 이 문서 0장의 "현재 서비스 목록" 표에도 한 줄 추가
+8. 상표가 들어간 서비스(회사·브랜드 이름)면 `TEXT.*.notice`와 `privacy/index.html` 상표 고지에 이름 추가
+9. 브랜치 → PR → 사용자 머지
 
 > 기존 카드 id 중 `nopo`, `name`은 서브도메인(`nopomap`, `nss`)과 달라요. 새 서비스는 카드 id를 서브도메인 id와 똑같이 맞춰요.
 
 주의할 점:
 
-- 이 저장소의 `index.html`은 빌드 없이 그대로 배포돼요. `<head>`의 파비콘 링크와 `/_vercel/insights/script.js` 스크립트를 지우지 마세요.
-- Claude 프로젝트에서 작업할 땐 원본이 `/mnt/project-files/hub-site/index.html`(미리보기 Artifact 원본)이고, 배포본은 `/mnt/project-files/hub-site/deploy/`예요. 원본을 고쳤으면 deploy를 다시 만들고 이 저장소에 반영해요. 세 곳이 어긋나지 않게 해요.
+- 이 저장소의 `index.html`은 빌드 없이 그대로 배포돼요. `<head>`의 파비콘 링크와 `/_vercel/insights/script.js` 스크립트를 지우지 마세요. `seo:start ~ seo:end` 사이와 `ko/index.html`은 스크립트가 만드는 부분이라 직접 고치지 않아요.
+- **이 저장소가 원본이에요.** Claude 프로젝트 파일 `/mnt/project-files/hub-site/deploy/`는 이 저장소의 사본이고, `/mnt/project-files/hub-site/index.html`은 예전 미리보기용이에요. 허브를 고칠 땐 이 저장소에서 고치고 PR로 올려요.
 - 카드는 2열이고, 홀수 개면 마지막 카드가 전체 폭이 돼요.
 
 ---
